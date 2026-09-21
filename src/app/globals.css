@@ -1,0 +1,378 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/space-grotesk/300.css';
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import 'tailwindcss';
+
+@theme inline {
+  --color-ink-950: var(--theme-ink-950);
+  --color-ink-900: var(--theme-ink-900);
+  --color-slate-800: var(--theme-slate-800);
+  --color-slate-700: var(--theme-slate-700);
+  --color-blue-500: var(--theme-blue-500);
+  --color-violet-500: var(--theme-violet-500);
+  --color-green-400: var(--theme-green-400);
+  --color-white-100: var(--theme-white-100);
+  --color-grey-300: var(--theme-grey-300);
+  --color-success: var(--theme-success);
+  --color-warning: var(--theme-warning);
+  --color-danger: var(--theme-danger);
+  --color-on-accent: var(--theme-on-accent);
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --radius-button: 0.75rem;
+  --radius-card: 1.125rem;
+  --shadow-glow:
+    0 0 0 1px rgba(237, 28, 36, 0.28), 0 16px 48px -8px rgba(237, 28, 36, 0.24);
+  --shadow-glow-green:
+    0 0 0 1px rgba(47, 157, 88, 0.28), 0 16px 48px -8px rgba(47, 157, 88, 0.24);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    --site-max-width: 80rem;
+    --site-reading-width: 45rem;
+    --ease-glide: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration-glide: 350ms;
+
+    --theme-ink-950: #faf7f3;
+    --theme-ink-900: #f3ede7;
+    --theme-slate-800: #e8e0d7;
+    --theme-slate-700: #d5c9be;
+    --theme-blue-500: #a30f17;
+    --theme-violet-500: #4a3a38;
+    --theme-green-400: #195b32;
+    --theme-white-100: #141414;
+    --theme-grey-300: #544e49;
+    --theme-success: #195b32;
+    --theme-warning: #694000;
+    --theme-danger: #a30f17;
+    --theme-on-accent: #ffffff;
+
+    --theme-card-bg: rgba(232, 224, 215, 0.72);
+    --theme-card-border: rgba(20, 20, 20, 0.08);
+    --theme-card-border-hover: rgba(237, 28, 36, 0.4);
+
+    --theme-app-background:
+      radial-gradient(circle at top, rgba(237, 28, 36, 0.1), transparent 34%),
+      radial-gradient(
+        circle at 85% 12%,
+        rgba(74, 58, 56, 0.12),
+        transparent 24%
+      ),
+      radial-gradient(
+        circle at 50% -20%,
+        rgba(237, 28, 36, 0.12),
+        transparent 45%
+      ),
+      linear-gradient(180deg, #faf7f3 0%, #f4ede6 45%, #ece3d9 100%);
+    --theme-app-grid:
+      linear-gradient(rgba(20, 20, 20, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 20, 20, 0.05) 1px, transparent 1px);
+    --theme-app-selection-bg: #a30f17;
+    --theme-app-selection-fg: #ffffff;
+    --theme-app-focus: #a30f17;
+  }
+
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --theme-ink-950: #060b13;
+    --theme-ink-900: #09121f;
+    --theme-slate-800: #101c2e;
+    --theme-slate-700: #203147;
+    --theme-white-100: #f5f7fa;
+    --theme-grey-300: #b7c1d1;
+    --theme-blue-500: #ff8b91;
+    --theme-violet-500: #cab4ff;
+    --theme-green-400: #7ade9e;
+    --theme-success: #7ade9e;
+    --theme-warning: #ffd080;
+    --theme-danger: #ff8b91;
+    --theme-on-accent: #060b13;
+
+    --theme-card-bg: rgba(16, 28, 46, 0.65);
+    --theme-card-border: rgba(255, 255, 255, 0.08);
+    --theme-card-border-hover: rgba(237, 28, 36, 0.5);
+
+    --theme-app-background:
+      radial-gradient(circle at top, rgba(237, 28, 36, 0.12), transparent 34%),
+      radial-gradient(
+        circle at 85% 12%,
+        rgba(74, 58, 56, 0.12),
+        transparent 24%
+      ),
+      radial-gradient(
+        circle at 50% -20%,
+        rgba(237, 28, 36, 0.16),
+        transparent 45%
+      ),
+      linear-gradient(180deg, #060b13 0%, #08111d 45%, #050910 100%);
+    --theme-app-grid:
+      linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    --theme-app-selection-bg: #a30f17;
+    --theme-app-selection-fg: #ffffff;
+    --theme-app-focus: #ff8b91;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--theme-app-background);
+  color: var(--color-white-100);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image: var(--theme-app-grid);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(
+    circle at 50% 35%,
+    rgba(0, 0, 0, 0.8) 0%,
+    transparent 80%
+  );
+  z-index: 0;
+}
+
+/* Ambient Cricket Field Geometry: Boundary Ellipse & 30-Yard Circle */
+body::after {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(
+      ellipse 70% 55% at 50% 32%,
+      transparent 49.5%,
+      rgba(47, 157, 88, 0.04) 50%,
+      transparent 50.5%
+    ),
+    radial-gradient(
+      ellipse 42% 33% at 50% 32%,
+      transparent 49.2%,
+      rgba(237, 28, 36, 0.035) 49.8%,
+      transparent 50.4%
+    );
+  mask-image: radial-gradient(
+    circle at 50% 32%,
+    rgba(0, 0, 0, 0.9) 0%,
+    transparent 78%
+  );
+  z-index: 0;
+}
+
+:root[data-theme='dark'] body::after {
+  background-image:
+    radial-gradient(
+      ellipse 70% 55% at 50% 32%,
+      transparent 49.5%,
+      rgba(47, 157, 88, 0.08) 50%,
+      transparent 50.5%
+    ),
+    radial-gradient(
+      ellipse 42% 33% at 50% 32%,
+      transparent 49.2%,
+      rgba(237, 28, 36, 0.07) 49.8%,
+      transparent 50.4%
+    );
+}
+
+::selection {
+  background: var(--theme-app-selection-bg);
+  color: var(--theme-app-selection-fg);
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--theme-app-focus);
+  outline-offset: 2px;
+}
+
+/* Kinetic Gliding & Telemetry Utilities */
+.glide-transition {
+  transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.telemetry-card {
+  background: var(--theme-card-bg);
+  border: 1px solid var(--theme-card-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition:
+    transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 350ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.telemetry-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--theme-card-border-hover);
+  box-shadow:
+    0 20px 40px -15px rgba(0, 0, 0, 0.12),
+    0 0 20px 0 rgba(237, 28, 36, 0.08);
+}
+
+:root[data-theme='dark'] .telemetry-card:hover {
+  box-shadow:
+    0 24px 48px -15px rgba(0, 0, 0, 0.6),
+    0 0 24px 0 rgba(237, 28, 36, 0.12);
+}
+
+@keyframes telemetry-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+}
+
+.animate-telemetry-pulse {
+  animation: telemetry-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 8s linear infinite;
+}
+
+/* Accessibility: Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .telemetry-card:hover {
+    transform: none !important;
+  }
+}
+
+/* Keep hidden disclosures out of layout and the accessibility tree. */
+[hidden] {
+  display: none !important;
+}
+
+/* Sticky navigation must not obscure anchors or keyboard focus. */
+html {
+  scroll-padding-top: 7rem;
+}
+[id],
+a,
+button,
+input,
+textarea,
+select {
+  scroll-margin-top: 7rem;
+}
+
+/* Allow legal/contact text and enlarged controls to reflow. */
+p,
+address,
+a {
+  overflow-wrap: anywhere;
+}
+button,
+a[role='button'] {
+  white-space: normal;
+}
+
+/* StatStrike & BeSportify Scrollytelling & HUD Telemetry Enhancements */
+:root {
+  --statstrike-bg: #0b1113;
+  --statstrike-surface: #0f1719;
+  --statstrike-teal: #14b8a6;
+  --statstrike-red: #ef4444;
+  --besportify-bg: #09080a;
+}
+
+.statstrike-canvas-container {
+  background-color: #0b1113;
+}
+
+.besportify-canvas-container {
+  background-color: #09080a;
+}
+
+/* Telemetry scanline pattern */
+.bg-telemetry-scanlines {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%,
+    rgba(0, 0, 0, 0.25)
+  );
+  background-size: 100% 4px;
+}
+
+/* Custom smooth dark scrollbar for canvas scrollytelling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09080a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(237, 28, 36, 0.5);
+}

@@ -14,29 +14,31 @@ Principles:
 
 ## 2. Brand relationship
 
-- BeSportify: master brand; electric blue/violet accent
+- BeSportify: master brand; logo-led charcoal/black identity with a signal red accent
 - StatStrike: flagship cricket product; performance green accent
-- Both share typography, dark surfaces, spacing, radii, and motion language
+- Both share typography, spacing, radii, and motion language
+- Red is reserved for BeSportify brand moments, primary CTAs, links, and focus states
 - Green is used deliberately on StatStrike sections and product CTAs, not everywhere
 
-## 3. Preliminary color tokens
+## 3. Color tokens
 
-These values remain provisional until official logo artwork is supplied.
+The logo artwork has been supplied. The values below are the active brand palette.
+Token names remain compatibility aliases from the starter implementation.
 
 | Token | Value | Use |
 |---|---|---|
-| `ink-950` | `#07111F` | Main background |
-| `ink-900` | `#0B1728` | Alternate background |
-| `slate-800` | `#101F32` | Cards and surfaces |
-| `slate-700` | `#26364A` | Borders |
-| `blue-500` | `#3B82F6` | BeSportify primary accent |
-| `violet-500` | `#7857FF` | Secondary brand accent |
-| `green-400` | `#8CEB3A` | StatStrike accent |
-| `white-100` | `#F5F7FA` | Primary text |
-| `grey-300` | `#A7B1C2` | Secondary text |
-| `success` | `#43D17A` | Success feedback |
-| `warning` | `#F5B942` | Warning feedback |
-| `danger` | `#F16464` | Error feedback |
+| `ink-950` | `#FAF7F3` | Main paper background |
+| `ink-900` | `#F3EDE7` | Alternate background |
+| `slate-800` | `#E7DFD6` | Cards and surfaces |
+| `slate-700` | `#D3C8BE` | Borders |
+| `blue-500` | `#ED1C24` | BeSportify brand accent red |
+| `violet-500` | `#4A3A38` | Warm graphite support tone |
+| `green-400` | `#2F9D58` | StatStrike accent |
+| `white-100` | `#141414` | Primary text |
+| `grey-300` | `#5F5A56` | Secondary text |
+| `success` | `#2F9D58` | Success feedback |
+| `warning` | `#C78B2E` | Warning feedback |
+| `danger` | `#D93A3F` | Error feedback |
 
 Every foreground/background pair must be contrast-tested. Do not encode meaning through color alone.
 
@@ -128,10 +130,10 @@ Avoid:
 
 ### Home hero
 
-- Strong left-aligned proposition
+- Strong left-aligned proposition on a light paper surface
 - Clear CTAs
 - Real StatStrike screenshot in a refined product frame
-- Subtle pitch/grid motif in the background
+- Subtle pitch/grid motif in the background with red brand glow
 
 ### StatStrike page
 
@@ -170,4 +172,3 @@ Avoid:
 - Empty/one-item/many-item content states reviewed
 - Reduced-motion behavior verified
 - Product screenshots remain legible and appropriately cropped
-

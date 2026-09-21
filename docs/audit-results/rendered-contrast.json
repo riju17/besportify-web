@@ -1,0 +1,478 @@
+[
+  {
+    "route": "/",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 74,
+    "minimum": 5.06,
+    "failures": []
+  },
+  {
+    "route": "/products",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 65,
+    "minimum": 5.48,
+    "failures": []
+  },
+  {
+    "route": "/products/statstrike",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 122,
+    "minimum": 5.28,
+    "failures": []
+  },
+  {
+    "route": "/services",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 44,
+    "minimum": 5.72,
+    "failures": []
+  },
+  {
+    "route": "/about",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 69,
+    "minimum": 5.51,
+    "failures": []
+  },
+  {
+    "route": "/team",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 54,
+    "minimum": 5.6,
+    "failures": []
+  },
+  {
+    "route": "/careers",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 41,
+    "minimum": 6,
+    "failures": []
+  },
+  {
+    "route": "/privacy",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 79,
+    "minimum": 5.39,
+    "failures": []
+  },
+  {
+    "route": "/cookies",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 66,
+    "minimum": 5.56,
+    "failures": []
+  },
+  {
+    "route": "/contact",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 53,
+    "minimum": 5.72,
+    "failures": []
+  },
+  {
+    "route": "/terms",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 79,
+    "minimum": 5.42,
+    "failures": []
+  },
+  {
+    "route": "/refunds",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 61,
+    "minimum": 5.36,
+    "failures": []
+  },
+  {
+    "route": "/accessibility",
+    "theme": "light",
+    "width": 1280,
+    "sampledTextNodes": 56,
+    "minimum": 5.86,
+    "failures": []
+  },
+  {
+    "route": "/",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 66,
+    "minimum": 4.07,
+    "failures": [
+      {
+        "text": "BeSportify Intelligence Layer",
+        "ratio": 4.07,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/products",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 57,
+    "minimum": 3.95,
+    "failures": [
+      {
+        "text": "Products",
+        "ratio": 3.95,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/products/statstrike",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 114,
+    "minimum": 4.04,
+    "failures": [
+      {
+        "text": "StatStrike by BeSportify",
+        "ratio": 4.04,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/services",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 36,
+    "minimum": 4.01,
+    "failures": [
+      {
+        "text": "Services",
+        "ratio": 4.01,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 61,
+    "minimum": 4.07,
+    "failures": [
+      {
+        "text": "About",
+        "ratio": 4.07,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/team",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 46,
+    "minimum": 4.13,
+    "failures": [
+      {
+        "text": "Team",
+        "ratio": 4.13,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/careers",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 33,
+    "minimum": 3.94,
+    "failures": [
+      {
+        "text": "Talent & Engineering",
+        "ratio": 3.94,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/privacy",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 71,
+    "minimum": 4.6,
+    "failures": []
+  },
+  {
+    "route": "/cookies",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 58,
+    "minimum": 4.47,
+    "failures": [
+      {
+        "text": "Optional appearance preference",
+        "ratio": 4.47,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/contact",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 45,
+    "minimum": 4.02,
+    "failures": [
+      {
+        "text": "Contact",
+        "ratio": 4.02,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/terms",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 71,
+    "minimum": 4.41,
+    "failures": [
+      {
+        "text": "Products, information, and outcomes",
+        "ratio": 4.41,
+        "required": 4.5
+      }
+    ]
+  },
+  {
+    "route": "/refunds",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 53,
+    "minimum": 4.52,
+    "failures": []
+  },
+  {
+    "route": "/accessibility",
+    "theme": "light",
+    "width": 375,
+    "sampledTextNodes": 48,
+    "minimum": 4.79,
+    "failures": []
+  },
+  {
+    "route": "/",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 74,
+    "minimum": 6.52,
+    "failures": []
+  },
+  {
+    "route": "/products",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 65,
+    "minimum": 7.1,
+    "failures": []
+  },
+  {
+    "route": "/products/statstrike",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 122,
+    "minimum": 7.63,
+    "failures": []
+  },
+  {
+    "route": "/services",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 44,
+    "minimum": 7.29,
+    "failures": []
+  },
+  {
+    "route": "/about",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 69,
+    "minimum": 6.96,
+    "failures": []
+  },
+  {
+    "route": "/team",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 54,
+    "minimum": 7.13,
+    "failures": []
+  },
+  {
+    "route": "/careers",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 41,
+    "minimum": 7.51,
+    "failures": []
+  },
+  {
+    "route": "/privacy",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 79,
+    "minimum": 7.98,
+    "failures": []
+  },
+  {
+    "route": "/cookies",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 66,
+    "minimum": 8.14,
+    "failures": []
+  },
+  {
+    "route": "/contact",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 53,
+    "minimum": 7.22,
+    "failures": []
+  },
+  {
+    "route": "/terms",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 79,
+    "minimum": 7.95,
+    "failures": []
+  },
+  {
+    "route": "/refunds",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 61,
+    "minimum": 8.23,
+    "failures": []
+  },
+  {
+    "route": "/accessibility",
+    "theme": "dark",
+    "width": 1280,
+    "sampledTextNodes": 56,
+    "minimum": 8.34,
+    "failures": []
+  },
+  {
+    "route": "/",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 66,
+    "minimum": 6.33,
+    "failures": []
+  },
+  {
+    "route": "/products",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 57,
+    "minimum": 5.36,
+    "failures": []
+  },
+  {
+    "route": "/products/statstrike",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 114,
+    "minimum": 7.13,
+    "failures": []
+  },
+  {
+    "route": "/services",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 36,
+    "minimum": 5.42,
+    "failures": []
+  },
+  {
+    "route": "/about",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 61,
+    "minimum": 5.36,
+    "failures": []
+  },
+  {
+    "route": "/team",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 46,
+    "minimum": 5.5,
+    "failures": []
+  },
+  {
+    "route": "/careers",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 33,
+    "minimum": 5.33,
+    "failures": []
+  },
+  {
+    "route": "/privacy",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 71,
+    "minimum": 6.61,
+    "failures": []
+  },
+  {
+    "route": "/cookies",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 58,
+    "minimum": 6.48,
+    "failures": []
+  },
+  {
+    "route": "/contact",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 45,
+    "minimum": 5.39,
+    "failures": []
+  },
+  {
+    "route": "/terms",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 71,
+    "minimum": 6.6,
+    "failures": []
+  },
+  {
+    "route": "/refunds",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 53,
+    "minimum": 6.5,
+    "failures": []
+  },
+  {
+    "route": "/accessibility",
+    "theme": "dark",
+    "width": 375,
+    "sampledTextNodes": 48,
+    "minimum": 6.97,
+    "failures": []
+  }
+]

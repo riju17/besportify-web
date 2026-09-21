@@ -202,8 +202,8 @@ Navigation hierarchy, routes, design tokens, component behaviour, security, form
 
 - Follow `DESIGN.md`; do not improvise a different brand system.
 - Use the `The Intelligence Layer` concept with restraint.
-- BeSportify uses provisional blue/violet accents; StatStrike introduces performance green.
-- Preserve a dark-first, premium sports-intelligence character.
+- BeSportify uses a logo-led red/graphite accent system; StatStrike introduces performance green.
+- Preserve a paper-first, premium sports-intelligence character.
 - Avoid betting, gaming, fantasy-sport, cryptocurrency, excessive neon, generic dashboard, and meaningless chart styling.
 - Use real approved screenshots and photography when supplied.
 - Do not allow Sanity content to create arbitrary layouts or styles.
