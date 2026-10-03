@@ -215,9 +215,15 @@ export function EditorialActionRow({
 }) {
   return (
     <div className="flex flex-wrap gap-3">
-      <Button href={primary.href}>{primary.label}</Button>
+      <Button className="w-full sm:w-auto" href={primary.href}>
+        {primary.label}
+      </Button>
       {secondary ? (
-        <Button href={secondary.href} variant="secondary">
+        <Button
+          className="w-full sm:w-auto"
+          href={secondary.href}
+          variant="secondary"
+        >
           {secondary.label}
         </Button>
       ) : null}

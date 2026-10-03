@@ -146,6 +146,14 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+p,
+li,
+td,
+th {
+  overflow-wrap: anywhere;
 }
 
 body::before {

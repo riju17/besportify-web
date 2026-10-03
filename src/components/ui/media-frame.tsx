@@ -22,7 +22,7 @@ export function MediaFrame({
 }: MediaFrameProps) {
   return (
     <Card className={cx('overflow-hidden p-0', className)} tone="contrast">
-      <div className="relative min-h-[22rem] w-full bg-gradient-to-br from-ink-900 via-slate-800 to-ink-950">
+      <div className="relative min-h-[16rem] w-full bg-gradient-to-br from-ink-900 via-slate-800 to-ink-950 sm:min-h-[22rem]">
         {src && alt?.trim() ? (
           <Image
             alt={alt.trim()}
@@ -32,7 +32,7 @@ export function MediaFrame({
             src={src}
           />
         ) : (
-          <div className="relative flex h-full min-h-[22rem] w-full flex-col">
+          <div className="relative flex h-full min-h-[16rem] w-full flex-col sm:min-h-[22rem]">
             <CricketAnalyticsHUD className="rounded-none border-none shadow-none" />
             <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-700/80 bg-slate-950/80 px-4 py-2 font-mono text-[11px] text-grey-300">
               <span className="font-semibold uppercase tracking-wider text-blue-400">

@@ -96,6 +96,7 @@ export function HomepageSlice({
                   external={heroPrimary.external}
                   href={heroPrimary.href}
                   variant="primary"
+                  className="w-full sm:w-auto"
                   size="lg"
                 >
                   {heroPrimary.label}
@@ -104,25 +105,26 @@ export function HomepageSlice({
                   external={heroSecondary.external}
                   href={heroSecondary.href}
                   variant="secondary"
+                  className="w-full sm:w-auto"
                   size="lg"
                 >
                   {heroSecondary.label}
                 </Button>
               </div>
 
-              <div className="flex flex-wrap items-center gap-6 pt-2 font-mono text-xs text-grey-300 border-t border-white-100/8">
-                <div className="flex items-center gap-2">
+              <div className="flex flex-col items-start gap-3 border-t border-white-100/8 pt-4 font-mono text-xs text-grey-300 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-green-400 animate-telemetry-pulse" />
                   <span>STRUCTURED SPORTING DATA</span>
                   <span>PITCH MAP &amp; HAWKEYE TRAJECTORY</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-blue-500 animate-telemetry-pulse" />
                   <span>DECISION SUPPORT WORKFLOWS</span>
                   <span>360° WAGON WHEEL RADAR</span>
                 </div>
                 <div className="text-grey-300">SPORTS TECHNOLOGY</div>
-                <div className="flex items-center gap-2 text-grey-300">
+                <div className="flex flex-wrap items-center gap-2 text-grey-300">
                   <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-telemetry-pulse" />
                   <span>MATCH PHASE DYNAMICS</span>
                 </div>

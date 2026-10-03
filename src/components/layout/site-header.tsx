@@ -38,11 +38,11 @@ export function SiteHeader() {
       }}
       className="sticky top-0 z-40 border-b border-white-100/10 bg-ink-950/80 backdrop-blur-2xl transition-colors duration-300"
     >
-      <Container className="flex items-center justify-between gap-6 py-4 lg:gap-8">
+      <Container className="flex items-center justify-between gap-3 py-3 sm:gap-6 sm:py-4 lg:gap-8">
         <div className="flex min-w-0 shrink-0 items-center gap-3">
           <ThemeToggle />
           <Link
-            className="group flex shrink-0 items-center gap-3 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02]"
+            className="group flex min-w-0 shrink-0 items-center gap-3 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02]"
             href="/"
           >
             <BeSportifyLogo />

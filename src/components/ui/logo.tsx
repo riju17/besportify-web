@@ -21,7 +21,7 @@ export function BeSportifyLogo({
           <span className="whitespace-nowrap font-display text-base font-bold tracking-tight text-white-100">
             BeSportify
           </span>
-          <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.2em] text-grey-300">
+          <span className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.2em] text-grey-300 max-sm:hidden">
             Intelligence Layer
           </span>
         </span>

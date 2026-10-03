@@ -28,7 +28,7 @@ export function Card({
   return (
     <article
       className={cx(
-        'relative rounded-[1.25rem] p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]',
+        'relative min-w-0 rounded-[1.25rem] p-6 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]',
         interactive &&
           'hover:-translate-y-1 hover:shadow-xl motion-reduce:hover:translate-y-0',
         toneClasses[tone],
