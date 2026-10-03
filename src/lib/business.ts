@@ -5,6 +5,8 @@ import {
   type CorporateSiteSettings,
 } from './corporate-pages';
 
+const DEFAULT_BUSINESS_EMAIL = 'besportifyindia@gmail.com';
+
 export function resolveBusinessDetails(settings: CorporateSiteSettings) {
   const email = (value?: string | null) => {
     const parsed = z.email().safeParse(value?.trim());
@@ -22,9 +24,9 @@ export function resolveBusinessDetails(settings: CorporateSiteSettings) {
     process.env.BUSINESS_COUNTRY?.trim() ||
     settings?.businessCountry?.trim() ||
     null;
-  const supportEmail = email(
-    process.env.BUSINESS_SUPPORT_EMAIL || settings?.contactEmail,
-  );
+  const supportEmail =
+    email(process.env.BUSINESS_SUPPORT_EMAIL || settings?.contactEmail) ||
+    email(DEFAULT_BUSINESS_EMAIL);
   const privacyEmail =
     email(process.env.BUSINESS_PRIVACY_EMAIL || settings?.privacyEmail) ||
     supportEmail;

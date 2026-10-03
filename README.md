@@ -29,6 +29,9 @@ omitted, the site builds with its approved local fallback content. Add `SANITY_A
 `SANITY_PREVIEW_SECRET` for authenticated editorial preview, and `SANITY_REVALIDATE_SECRET` if Sanity webhooks will
 trigger on-demand revalidation. Keep all non-`NEXT_PUBLIC_` values server-only.
 
+The shared business resolver defaults support and privacy contact links to `besportifyindia@gmail.com`; replace it
+through the business email variables or approved Sanity site settings if a different monitored address is required.
+
 The app is deployed as a Node.js Next server:
 
 ```sh
