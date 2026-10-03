@@ -186,17 +186,20 @@ export function AnimatedStatStrike() {
     ctx.fillStyle = BACKGROUND_COLOR;
     ctx.fillRect(0, 0, w, h);
 
-    // Calculate contain fit scaling (maintains 16:9 native aspect ratio)
+    // Use a centered cover crop on portrait phones so the subject fills the
+    // viewport instead of rendering as a small landscape strip. Larger
+    // screens keep the complete landscape frame.
     const imgRatio = img.naturalWidth / img.naturalHeight;
     const canvasRatio = w / h;
 
     const isDesktop = w >= 768;
-    const scaleMultiplier = isDesktop ? 0.84 : 0.92;
+    const useMobileCrop = !isDesktop && canvasRatio < imgRatio;
+    const scaleMultiplier = isDesktop ? 0.84 : useMobileCrop ? 1.08 : 0.92;
 
     let baseW: number;
     let baseH: number;
 
-    if (canvasRatio > imgRatio) {
+    if (useMobileCrop || canvasRatio > imgRatio) {
       baseH = h;
       baseW = baseH * imgRatio;
     } else {
@@ -212,7 +215,9 @@ export function AnimatedStatStrike() {
     // ensuring zero collision with the hero header, subtitle, and top telemetry HUD.
     const verticalOffset = isDesktop
       ? Math.min(65, Math.max(35, h * 0.07))
-      : 20;
+      : useMobileCrop
+        ? 0
+        : 20;
     const drawY = (h - drawH) / 2 + verticalOffset;
 
     // Draw main frame
