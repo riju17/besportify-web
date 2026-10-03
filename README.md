@@ -24,7 +24,8 @@ Corporate website and Sanity editorial workspace for BeSportify.
 Copy `.env.example` to `.env.local` and supply the Sanity project values before running CMS-connected features.
 
 For production, configure the same variables in the hosting provider before the build runs. `NEXT_PUBLIC_SITE_URL`,
-`NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET` are required. Add `SANITY_API_READ_TOKEN` and
+`NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET` should be set for CMS-backed content; if they are
+omitted, the site builds with its approved local fallback content. Add `SANITY_API_READ_TOKEN` and
 `SANITY_PREVIEW_SECRET` for authenticated editorial preview, and `SANITY_REVALIDATE_SECRET` if Sanity webhooks will
 trigger on-demand revalidation. Keep all non-`NEXT_PUBLIC_` values server-only.
 

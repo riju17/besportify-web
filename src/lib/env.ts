@@ -3,8 +3,10 @@ import { z } from 'zod';
 const baseEnvSchema = z.object({
   NEXT_PUBLIC_SITE_URL: z.string().url().optional(),
   NEXT_PUBLIC_STATSTRIKE_APP_URL: z.string().url().optional(),
-  NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
-  NEXT_PUBLIC_SANITY_DATASET: z.string().min(1),
+  // CMS configuration is optional at build time. Pages have local fallbacks,
+  // while configured deployments use the supplied project and dataset.
+  NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1).default('local-dev'),
+  NEXT_PUBLIC_SANITY_DATASET: z.string().min(1).default('production'),
   NEXT_PUBLIC_SANITY_STUDIO_URL: z.string().url().optional(),
   SANITY_API_READ_TOKEN: z.string().min(1).optional(),
   SANITY_PREVIEW_SECRET: z.string().min(1).optional(),
