@@ -448,14 +448,14 @@ export function AnimatedBeSportify() {
         {/* Telemetry HUD Elements: Corner Coordinates & Live Sensors */}
         <div className="pointer-events-none absolute inset-0 z-20 flex flex-col justify-between pt-24 sm:pt-28 pb-8 px-6 sm:px-10 select-none">
           {/* Top Bar Telemetry */}
-          <div className="flex items-start justify-between font-mono text-[10px] tracking-wider text-white/50 uppercase">
+          <div className="flex items-start justify-between gap-4 font-mono text-[10px] tracking-wider text-white/50 uppercase">
             <div className="flex items-center gap-3">
               <span className="inline-flex h-2 w-2 rounded-full bg-red-400 animate-ping" />
               <span className="text-white/80">BESPORTIFY CORE: STREAMING</span>
               <span className="hidden text-white/30 sm:inline">|</span>
               <span className="hidden sm:inline">150-FRAME KINETIC MATRIX</span>
             </div>
-            <div className="flex items-center gap-4 text-right">
+            <div className="hidden shrink-0 items-center gap-4 text-right sm:flex">
               <div>
                 <span className="text-white/30">FRAME: </span>
                 <span className="font-semibold text-red-400">
@@ -589,7 +589,7 @@ export function AnimatedBeSportify() {
               visibility: feat1Visibility,
               pointerEvents: feat1PointerEvents,
             }}
-            className="absolute inset-y-0 left-4 sm:left-10 lg:left-16 flex items-center justify-start max-w-md lg:max-w-lg select-none"
+            className="absolute inset-y-0 left-4 hidden max-w-md items-center justify-start select-none sm:flex sm:left-10 lg:left-16 lg:max-w-lg"
           >
             <div className="space-y-4 rounded-2xl border border-white/10 bg-[#09080a]/85 p-5 sm:p-7 backdrop-blur-xl shadow-2xl shadow-black/60">
               <div className="flex items-center justify-between border-b border-white/10 pb-3">
@@ -646,7 +646,7 @@ export function AnimatedBeSportify() {
               visibility: feat2Visibility,
               pointerEvents: feat2PointerEvents,
             }}
-            className="absolute inset-y-0 right-4 sm:right-10 lg:right-16 flex items-center justify-end max-w-md lg:max-w-lg select-none"
+            className="absolute inset-y-0 right-4 hidden max-w-md items-center justify-end select-none sm:flex sm:right-10 lg:right-16 lg:max-w-lg"
           >
             <div className="space-y-4 rounded-2xl border border-white/10 bg-[#09080a]/85 p-5 sm:p-7 backdrop-blur-xl shadow-2xl shadow-black/60 text-right">
               <div className="flex items-center justify-between border-b border-white/10 pb-3 flex-row-reverse">
