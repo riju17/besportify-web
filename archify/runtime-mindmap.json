@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "BeSportify runtime architecture — mind map",
+    "quality_profile": "showcase",
+    "viewBox": [1200, 1000],
+    "repository": {
+      "url": "https://github.com/riju17/besportify.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "fabc8924c57be882b8ac82b0d1d7c7ea11f1ad7b"
+    },
+    "views": [
+      { "id": "core", "label": "Core system", "focus": ["root", "web", "cms", "delivery", "security"], "note": "Read the system as a set of responsibilities around the public website." },
+      { "id": "operations", "label": "Operations and dependencies", "focus": ["root", "editorial", "cache", "external", "boundaries"], "note": "Use this view to discuss ownership, failure modes, and external choices." }
+    ]
+  },
+  "components": [
+    { "id": "root", "type": "frontend", "label": "BeSportify website", "sublabel": "runtime center", "pos": [500, 430], "size": [190, 72], "tag": "Next.js + Sanity", "sources": [{ "path": "ARCHITECTURE.md", "label": "system" }] },
+    { "id": "web", "type": "frontend", "label": "Public experience", "sublabel": "routes + components", "pos": [100, 180], "size": [180, 64], "sources": [{ "path": "src/app/(site)/page.tsx", "label": "site routes" }] },
+    { "id": "delivery", "type": "cloud", "label": "Rendering + delivery", "sublabel": "SSR, static, media", "pos": [500, 150], "size": [190, 64], "sources": [{ "path": "src/app/layout.tsx", "label": "app shell" }, { "path": "next.config.ts", "label": "image config" }] },
+    { "id": "cms", "type": "database", "label": "Structured content", "sublabel": "Sanity Content Lake", "pos": [900, 180], "size": [190, 64], "sources": [{ "path": "src/sanity/lib/queries.ts", "label": "GROQ" }, { "path": "sanity/schemaTypes/index.ts", "label": "schemas" }] },
+    { "id": "editorial", "type": "frontend", "label": "Editorial workspace", "sublabel": "Studio + invited roles", "pos": [900, 430], "size": [190, 64], "sources": [{ "path": "src/app/studio/[[...tool]]/page.tsx", "label": "studio" }] },
+    { "id": "cache", "type": "backend", "label": "Cache + revalidation", "sublabel": "tags, paths, fallback", "pos": [900, 700], "size": [190, 64], "sources": [{ "path": "src/app/api/revalidate/route.ts", "label": "revalidation" }, { "path": "src/sanity/lib/fetch.ts", "label": "cache policy" }] },
+    { "id": "security", "type": "security", "label": "Server trust zone", "sublabel": "tokens + preview + forms", "pos": [500, 760], "size": [190, 64], "sources": [{ "path": "src/sanity/lib/live.ts", "label": "server token" }, { "path": "src/app/api/draft-mode/enable/route.ts", "label": "preview" }] },
+    { "id": "external", "type": "external", "label": "External dependencies", "sublabel": "email, app, hosting", "pos": [100, 700], "size": [190, 64], "sources": [{ "path": "ARCHITECTURE.md", "label": "integrations" }, { "path": ".env.example", "label": "URLs" }] },
+    { "id": "boundaries", "type": "security", "label": "Ownership boundaries", "sublabel": "web ≠ StatStrike", "pos": [100, 430], "size": [190, 64], "sources": [{ "path": "ARCHITECTURE.md", "label": "boundaries" }] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Website runtime", "wraps": ["root", "web", "delivery", "cache", "security"], "pad": 28 },
+    { "kind": "region", "label": "Editorial platform", "wraps": ["cms", "editorial"], "pad": 24 },
+    { "kind": "security-group", "label": "Server-only controls", "wraps": ["security", "cache"], "pad": 18 }
+  ],
+  "connections": [
+    { "id": "root-web", "from": "root", "to": "web", "label": "serves", "variant": "emphasis" },
+    { "id": "root-delivery", "from": "root", "to": "delivery", "label": "renders through", "variant": "emphasis" },
+    { "id": "root-cms", "from": "root", "to": "cms", "label": "reads approved content", "variant": "emphasis" },
+    { "id": "cms-editorial", "from": "cms", "to": "editorial", "label": "managed by", "variant": "security", "labelDy": 24 },
+    { "id": "root-cache", "from": "root", "to": "cache", "label": "cached + refreshed", "variant": "dashed" },
+    { "id": "root-security", "from": "root", "to": "security", "label": "protects secrets", "variant": "security", "labelDy": 30 },
+    { "id": "root-external", "from": "root", "to": "external", "label": "adapters / links", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Core", "items": ["Public routes are server-rendered or statically delivered", "Content is queried through explicit GROQ projections", "The website links to StatStrike rather than embedding its runtime"] },
+    { "dot": "violet", "title": "Content operations", "items": ["Editors work in Sanity Studio with approval-aware schemas", "Preview is draft-only and token-backed", "Publication can target revalidation tags or paths"] },
+    { "dot": "rose", "title": "Risk and resilience", "items": ["Keep read tokens and provider secrets server-side", "Previously rendered pages remain available during CMS trouble", "Unselected providers stay behind replaceable adapters"] }
+  ]
+}

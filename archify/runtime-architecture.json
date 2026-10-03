@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "BeSportify website — runtime architecture",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/riju17/besportify.git",
+      "provider": "github",
+      "link_mode": "local-only",
+      "revision": "fabc8924c57be882b8ac82b0d1d7c7ea11f1ad7b"
+    },
+    "views": [
+      { "id": "request-path", "label": "Primary request path", "focus": ["visitor", "edge", "next-app", "sanity-fetch", "content-lake"], "note": "Follow a public page request through the server-rendered site and approved CMS content." },
+      { "id": "editorial-path", "label": "Editorial path", "focus": ["editor", "studio", "content-lake", "revalidate"], "note": "See how invited editors publish content and trigger targeted refreshes." },
+      { "id": "conversion-path", "label": "Conversion and product links", "focus": ["visitor", "contact", "mail-crm", "statstrike"], "note": "Isolate the enquiry handoff and the separate StatStrike application boundary." }
+    ]
+  },
+  "components": [
+    { "id": "visitor", "type": "external", "label": "Public visitor", "sublabel": "Browser", "pos": [40, 360], "size": [140, 64], "sources": [{ "path": "ARCHITECTURE.md", "label": "system boundary" }] },
+    { "id": "edge", "type": "cloud", "label": "Vercel edge", "sublabel": "TLS + routing", "pos": [230, 360], "size": [140, 64], "tag": "recommended hosting", "sources": [{ "path": "ARCHITECTURE.md", "label": "hosting" }] },
+    { "id": "next-app", "type": "frontend", "label": "Next.js App Router", "sublabel": "SSR / static pages", "pos": [420, 360], "size": [160, 64], "tag": "Next 16", "sources": [{ "path": "src/app/layout.tsx", "label": "root runtime" }] },
+    { "id": "sanity-fetch", "type": "backend", "label": "Sanity fetch layer", "sublabel": "GROQ + cache", "pos": [650, 360], "size": [160, 64], "tag": "published by default", "sources": [{ "path": "src/sanity/lib/fetch.ts", "label": "fetch wrapper" }, { "path": "src/sanity/lib/queries.ts", "label": "queries" }] },
+    { "id": "content-lake", "type": "database", "label": "Sanity Content Lake", "sublabel": "approved content", "pos": [880, 360], "size": [170, 64], "sources": [{ "path": "sanity/schemaTypes/documents.ts", "label": "content model" }] },
+    { "id": "sanity-cdn", "type": "cloud", "label": "Sanity asset CDN", "sublabel": "optimized media", "pos": [880, 560], "size": [170, 64], "sources": [{ "path": "src/sanity/lib/image.ts", "label": "image delivery" }] },
+    { "id": "studio", "type": "frontend", "label": "Sanity Studio", "sublabel": "invited editors", "pos": [650, 150], "size": [160, 64], "tag": "admin origin", "sources": [{ "path": "src/app/studio/[[...tool]]/page.tsx", "label": "studio route" }] },
+    { "id": "editor", "type": "external", "label": "Company editor", "sublabel": "authenticated user", "pos": [420, 150], "size": [160, 64], "sources": [{ "path": "ARCHITECTURE.md", "label": "roles" }] },
+    { "id": "contact", "type": "security", "label": "Contact boundary", "sublabel": "server-side handoff", "pos": [650, 740], "size": [160, 64], "tag": "provider adapter", "sources": [{ "path": "src/components/sections/contact-enquiry-form.tsx", "label": "enquiry UI" }, { "path": "README.md", "label": "current behavior" }] },
+    { "id": "mail-crm", "type": "external", "label": "Email / CRM", "sublabel": "approved provider", "pos": [880, 740], "size": [170, 64], "tag": "selected pre-launch", "sources": [{ "path": "ARCHITECTURE.md", "label": "external services" }] },
+    { "id": "statstrike", "type": "external", "label": "StatStrike app", "sublabel": "separate product", "pos": [1110, 360], "size": [170, 64], "tag": "configured URL", "sources": [{ "path": ".env.example", "label": "app URL" }, { "path": "ARCHITECTURE.md", "label": "product boundary" }] },
+    { "id": "revalidate", "type": "backend", "label": "Revalidation route", "sublabel": "signed tags / paths", "pos": [1110, 150], "size": [170, 64], "tag": "secret protected", "sources": [{ "path": "src/app/api/revalidate/route.ts", "label": "webhook route" }] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Public web deployment", "wraps": ["edge", "next-app", "sanity-fetch", "contact", "revalidate"], "pad": 28 },
+    { "kind": "security-group", "label": "Server-only trust zone", "wraps": ["sanity-fetch", "contact", "revalidate"], "pad": 18 },
+    { "kind": "region", "label": "Editorial platform", "wraps": ["editor", "studio", "content-lake", "sanity-cdn"], "pad": 26 }
+  ],
+  "connections": [
+    { "id": "visitor-edge", "from": "visitor", "to": "edge", "label": "HTTPS", "variant": "emphasis" },
+    { "id": "edge-next", "from": "edge", "to": "next-app", "label": "route request", "labelDy": -28 },
+    { "id": "next-fetch", "from": "next-app", "to": "sanity-fetch", "label": "server query" },
+    { "id": "fetch-lake", "from": "sanity-fetch", "to": "content-lake", "label": "GROQ / published", "variant": "emphasis", "labelDy": -52 },
+    { "id": "next-assets", "from": "next-app", "to": "sanity-cdn", "label": "image URL", "variant": "dashed", "fromSide": "bottom", "toSide": "top", "via": [[500, 540], [965, 540]] },
+    { "id": "editor-studio", "from": "editor", "to": "studio", "label": "manage drafts", "variant": "security", "labelDy": -52 },
+    { "id": "studio-lake", "from": "studio", "to": "content-lake", "label": "publish / preview", "variant": "security", "fromSide": "right", "toSide": "top", "via": [[810, 182], [965, 182], [965, 330]] },
+    { "id": "studio-revalidate", "from": "studio", "to": "revalidate", "label": "signed webhook", "variant": "security", "labelDy": -52 },
+    { "id": "next-contact", "from": "next-app", "to": "contact", "label": "submit enquiry", "variant": "security", "fromSide": "bottom", "toSide": "top", "via": [[500, 700], [730, 700]] },
+    { "id": "contact-mail", "from": "contact", "to": "mail-crm", "label": "provider adapter", "variant": "dashed", "labelDy": 52 },
+    { "id": "next-statstrike", "from": "next-app", "to": "statstrike", "label": "product link", "variant": "dashed", "fromSide": "bottom", "toSide": "bottom", "via": [[500, 470], [1195, 470]], "labelDy": 22 }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Request path", "items": ["Next.js App Router renders public pages", "sanityFetch uses published perspective and CDN-backed reads by default", "Approved projections enforce visibility and evidence filters"] },
+    { "dot": "violet", "title": "Editorial path", "items": ["Sanity Studio is a distinct editor origin", "Preview switches to drafts through a protected cookie", "Signed revalidation refreshes tags or paths without a full redeploy"] },
+    { "dot": "rose", "title": "Trust boundaries", "items": ["Browser code never receives the Sanity read token", "Server-only routes own preview, revalidation, and future form secrets", "StatStrike has no shared auth, database, or deployment dependency"] },
+    { "dot": "amber", "title": "Current gaps", "items": ["Enquiry delivery provider is intentionally not selected yet", "Analytics, monitoring, spam protection, and hosting remain deployment choices", "Cached/static pages are the resilience path during CMS failure"] }
+  ]
+}

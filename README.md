@@ -23,6 +23,22 @@ Corporate website and Sanity editorial workspace for BeSportify.
 
 Copy `.env.example` to `.env.local` and supply the Sanity project values before running CMS-connected features.
 
+For production, configure the same variables in the hosting provider before the build runs. `NEXT_PUBLIC_SITE_URL`,
+`NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET` are required. Add `SANITY_API_READ_TOKEN` and
+`SANITY_PREVIEW_SECRET` for authenticated editorial preview, and `SANITY_REVALIDATE_SECRET` if Sanity webhooks will
+trigger on-demand revalidation. Keep all non-`NEXT_PUBLIC_` values server-only.
+
+The app is deployed as a Node.js Next server:
+
+```sh
+npm ci
+npm run build
+npm run start
+```
+
+Use Node 22.14.0 (or another Node 22 release satisfying `package.json#engines`). CMS-backed site routes are
+intentionally server-rendered at request time so draft mode and Sanity content do not run during the build.
+
 ## Notes
 
 - The repository is intentionally structured around the controlled phase plan in `PHASES.md`.
