@@ -291,6 +291,25 @@ select {
   animation: radar-sweep 8s linear infinite;
 }
 
+@keyframes statstrike-logo-motion {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-0.6rem) rotate(180deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+.statstrike-logo-motion {
+  animation: statstrike-logo-motion 24s ease-in-out infinite;
+  transform-origin: center;
+}
+
 /* Accessibility: Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -308,6 +327,10 @@ select {
 
   .telemetry-card:hover {
     transform: none !important;
+  }
+
+  .statstrike-logo-motion {
+    animation: none;
   }
 }
 

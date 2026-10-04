@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { InlineLink } from '@/components/ui/link';
@@ -170,8 +171,19 @@ export default async function ProductsPage() {
                   </Button>
                 </div>
               </div>
-              <div className="flex min-h-64 items-end border-t border-green-400/20 bg-[radial-gradient(circle_at_70%_20%,rgba(47,157,88,0.3),transparent_45%),linear-gradient(145deg,rgba(6,11,19,0.15),rgba(6,11,19,0.8))] p-6 lg:border-l lg:border-t-0 lg:p-8">
-                <div className="space-y-2">
+              <div className="relative flex min-h-64 items-end overflow-hidden border-t border-green-400/20 bg-[radial-gradient(circle_at_70%_20%,rgba(47,157,88,0.3),transparent_45%),linear-gradient(145deg,rgba(6,11,19,0.15),rgba(6,11,19,0.8))] p-6 lg:min-h-full lg:border-l lg:border-t-0 lg:p-8">
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                  <div className="statstrike-logo-motion relative h-36 w-36 rounded-full shadow-[0_0_48px_rgba(82,218,205,0.22)] transition-transform duration-500 hover:scale-110 sm:h-44 sm:w-44">
+                    <Image
+                      alt="StatStrike logo"
+                      className="h-full w-full rounded-full object-cover mix-blend-multiply"
+                      fill
+                      sizes="(min-width: 640px) 11rem, 9rem"
+                      src="/statstrike-logo.jpg"
+                    />
+                  </div>
+                </div>
+                <div className="relative z-10 space-y-2">
                   <div className="font-mono text-xs uppercase tracking-[0.2em] text-green-400">
                     Built for cricket decisions
                   </div>
