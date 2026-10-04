@@ -291,22 +291,19 @@ select {
   animation: radar-sweep 8s linear infinite;
 }
 
-@keyframes statstrike-logo-motion {
-  0% {
-    transform: translateY(0) rotate(0deg);
+@keyframes statstrike-logo-float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
   50% {
-    transform: translateY(-0.6rem) rotate(180deg);
-  }
-
-  100% {
-    transform: translateY(0) rotate(360deg);
+    transform: translateY(-0.6rem);
   }
 }
 
 .statstrike-logo-motion {
-  animation: statstrike-logo-motion 24s ease-in-out infinite;
+  animation: statstrike-logo-float 5s ease-in-out infinite;
   transform-origin: center;
 }
 

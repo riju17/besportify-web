@@ -179,7 +179,7 @@ export default async function ProductsPage() {
                       className="h-full w-full rounded-full object-cover mix-blend-multiply"
                       fill
                       sizes="(min-width: 640px) 11rem, 9rem"
-                      src="/statstrike-logo.jpg"
+                      src="/statstrike-logo-marble.png"
                     />
                   </div>
                 </div>
